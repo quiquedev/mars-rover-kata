@@ -81,10 +81,10 @@ public class CommandProcessorTest {
         final String[] args = {"0", "0", "NORTH", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(0, 2, NORTH), endPosition);
+        assertEquals(new Position(0, 2, NORTH), finalPosition);
     }
 
     @Test
@@ -93,10 +93,10 @@ public class CommandProcessorTest {
         final String[] args = {"-4", "2", "NORTH", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(-4, 4, NORTH), endPosition);
+        assertEquals(new Position(-4, 4, NORTH), finalPosition);
     }
 
     @Test
@@ -105,10 +105,10 @@ public class CommandProcessorTest {
         final String[] args = {"4", "1", "NORTH", "FFF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(4, 4, NORTH), endPosition);
+        assertEquals(new Position(4, 4, NORTH), finalPosition);
     }
 
     @Test
@@ -117,10 +117,10 @@ public class CommandProcessorTest {
         final String[] args = {"-7", "-2", "NORTH", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(-7, 0, NORTH), endPosition);
+        assertEquals(new Position(-7, 0, NORTH), finalPosition);
     }
 
     @Test
@@ -129,10 +129,10 @@ public class CommandProcessorTest {
         final String[] args = {"4", "-2", "NORTH", "FFFF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(4, 2, NORTH), endPosition);
+        assertEquals(new Position(4, 2, NORTH), finalPosition);
     }
 
     ///
@@ -142,10 +142,10 @@ public class CommandProcessorTest {
         final String[] args = {"0", "0", "SOUTH", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(0, -2, SOUTH), endPosition);
+        assertEquals(new Position(0, -2, SOUTH), finalPosition);
     }
 
     @Test
@@ -154,10 +154,10 @@ public class CommandProcessorTest {
         final String[] args = {"-4", "2", "SOUTH", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(-4, 0, SOUTH), endPosition);
+        assertEquals(new Position(-4, 0, SOUTH), finalPosition);
     }
 
     @Test
@@ -166,10 +166,10 @@ public class CommandProcessorTest {
         final String[] args = {"4", "1", "SOUTH", "FFF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(4, -2, SOUTH), endPosition);
+        assertEquals(new Position(4, -2, SOUTH), finalPosition);
     }
 
     @Test
@@ -178,10 +178,10 @@ public class CommandProcessorTest {
         final String[] args = {"-7", "-2", "SOUTH", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(-7, -4, SOUTH), endPosition);
+        assertEquals(new Position(-7, -4, SOUTH), finalPosition);
     }
 
     @Test
@@ -190,10 +190,10 @@ public class CommandProcessorTest {
         final String[] args = {"4", "-2", "SOUTH", "FFFF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(4, -6, SOUTH), endPosition);
+        assertEquals(new Position(4, -6, SOUTH), finalPosition);
     }
 
 
@@ -203,10 +203,10 @@ public class CommandProcessorTest {
         final String[] args = {"0", "0", "EAST", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(2, 0, EAST), endPosition);
+        assertEquals(new Position(2, 0, EAST), finalPosition);
     }
 
     @Test
@@ -215,10 +215,10 @@ public class CommandProcessorTest {
         final String[] args = {"-4", "2", "EAST", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(-2, 2, EAST), endPosition);
+        assertEquals(new Position(-2, 2, EAST), finalPosition);
     }
 
     @Test
@@ -227,10 +227,10 @@ public class CommandProcessorTest {
         final String[] args = {"4", "1", "EAST", "FFF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(7, 1, EAST), endPosition);
+        assertEquals(new Position(7, 1, EAST), finalPosition);
     }
 
     @Test
@@ -239,10 +239,10 @@ public class CommandProcessorTest {
         final String[] args = {"-7", "-2", "EAST", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(-5, -2, EAST), endPosition);
+        assertEquals(new Position(-5, -2, EAST), finalPosition);
     }
 
     @Test
@@ -251,10 +251,10 @@ public class CommandProcessorTest {
         final String[] args = {"4", "-2", "EAST", "FFFF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(8, -2, EAST), endPosition);
+        assertEquals(new Position(8, -2, EAST), finalPosition);
     }
 
     @Test
@@ -263,10 +263,10 @@ public class CommandProcessorTest {
         final String[] args = {"0", "0", "WEST", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(-2, 0, WEST), endPosition);
+        assertEquals(new Position(-2, 0, WEST), finalPosition);
     }
 
     @Test
@@ -275,10 +275,10 @@ public class CommandProcessorTest {
         final String[] args = {"-4", "2", "WEST", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(-6, 2, WEST), endPosition);
+        assertEquals(new Position(-6, 2, WEST), finalPosition);
     }
 
     @Test
@@ -287,10 +287,10 @@ public class CommandProcessorTest {
         final String[] args = {"4", "1", "WEST", "FFF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(1, 1, WEST), endPosition);
+        assertEquals(new Position(1, 1, WEST), finalPosition);
     }
 
     @Test
@@ -299,10 +299,10 @@ public class CommandProcessorTest {
         final String[] args = {"-7", "-2", "WEST", "FF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(-9, -2, WEST), endPosition);
+        assertEquals(new Position(-9, -2, WEST), finalPosition);
     }
 
     @Test
@@ -311,10 +311,10 @@ public class CommandProcessorTest {
         final String[] args = {"4", "-2", "WEST", "FFFF"};
 
         // when
-        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+        final Position finalPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(0, -2, WEST), endPosition);
+        assertEquals(new Position(0, -2, WEST), finalPosition);
     }
 
 }
