@@ -2,6 +2,7 @@ package info.quiquedev;
 
 import info.quiquedev.CommandProcessor.CommandProcessorException;
 import info.quiquedev.Position.Direction;
+import static info.quiquedev.Position.Direction.EAST;
 import static info.quiquedev.Position.Direction.NORTH;
 import static info.quiquedev.Position.Direction.SOUTH;
 import static org.junit.Assert.assertEquals;
@@ -193,5 +194,66 @@ public class CommandProcessorTest {
 
         // then
         assertEquals(new Position(4, -6, SOUTH), endPosition);
+    }
+
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingOnEastCenter() {
+        // given
+        final String[] args = {"0", "0", "EAST", "FF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(2, 0,EAST), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingEastOnUpperLeft() {
+        // given
+        final String[] args = {"-4", "2", "EAST", "FF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(-2, 2, EAST), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingEastOnUpperRight() {
+        // given
+        final String[] args = {"4", "1", "EAST", "FFF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(7, 1, EAST), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingEastOnLowerLeft() {
+        // given
+        final String[] args = {"-7", "-2", "EAST", "FF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(-5, -2, EAST), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingEastOnLowerRight() {
+        // given
+        final String[] args = {"4", "-2", "EAST", "FFFF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(8, -2, EAST), endPosition);
     }
 }
