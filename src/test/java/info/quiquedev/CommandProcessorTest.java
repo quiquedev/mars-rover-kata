@@ -3,6 +3,7 @@ package info.quiquedev;
 import info.quiquedev.CommandProcessor.CommandProcessorException;
 import info.quiquedev.Position.Direction;
 import static info.quiquedev.Position.Direction.NORTH;
+import static info.quiquedev.Position.Direction.SOUTH;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -73,7 +74,8 @@ public class CommandProcessorTest {
         }
     }
 
-    private void shouldProcessCommandFOnVehiclesFacingOnCenter() {
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingNorthOnCenter() {
         // given
         final String[] args = {"0", "0", "NORTH", "FF"};
 
@@ -84,7 +86,8 @@ public class CommandProcessorTest {
         assertEquals(new Position(0, 2, NORTH), endPosition);
     }
 
-    private void shouldProcessCommandFOnVehiclesFacingNorthOnUpperLeft() {
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingNorthOnUpperLeft() {
         // given
         final String[] args = {"-4", "2", "NORTH", "FF"};
 
@@ -95,7 +98,8 @@ public class CommandProcessorTest {
         assertEquals(new Position(-4, 4, NORTH), endPosition);
     }
 
-    private void shouldProcessCommandFOnVehiclesFacingNorthOnUpperRight() {
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingNorthOnUpperRight() {
         // given
         final String[] args = {"4", "1", "NORTH", "FFF"};
 
@@ -106,6 +110,7 @@ public class CommandProcessorTest {
         assertEquals(new Position(4, 4, NORTH), endPosition);
     }
 
+    @Test
     public void shouldProcessCommandFOnVehiclesFacingNorthOnLowerLeft() {
         // given
         final String[] args = {"-7", "-2", "NORTH", "FF"};
@@ -127,5 +132,66 @@ public class CommandProcessorTest {
 
         // then
         assertEquals(new Position(4, 2, NORTH), endPosition);
+    }
+
+    ///
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingSouthOnCenter() {
+        // given
+        final String[] args = {"0", "0", "SOUTH", "FF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(0, -2, SOUTH), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingSouthOnUpperLeft() {
+        // given
+        final String[] args = {"-4", "2", "SOUTH", "FF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(-4, 0, SOUTH), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingSouthOnUpperRight() {
+        // given
+        final String[] args = {"4", "1", "SOUTH", "FFF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(4, -2, SOUTH), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingSouthOnLowerLeft() {
+        // given
+        final String[] args = {"-7", "-2", "SOUTH", "FF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(-7, -4, SOUTH), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingSouthOnLowerRight() {
+        // given
+        final String[] args = {"4", "-2", "SOUTH", "FFFF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(4, -6, SOUTH), endPosition);
     }
 }
