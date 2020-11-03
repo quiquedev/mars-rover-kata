@@ -1,10 +1,10 @@
 package info.quiquedev;
 
 import info.quiquedev.CommandProcessor.CommandProcessorException;
-import info.quiquedev.Position.Direction;
 import static info.quiquedev.Position.Direction.EAST;
 import static info.quiquedev.Position.Direction.NORTH;
 import static info.quiquedev.Position.Direction.SOUTH;
+import static info.quiquedev.Position.Direction.WEST;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -206,7 +206,7 @@ public class CommandProcessorTest {
         final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
 
         // then
-        assertEquals(new Position(2, 0,EAST), endPosition);
+        assertEquals(new Position(2, 0, EAST), endPosition);
     }
 
     @Test
@@ -256,4 +256,65 @@ public class CommandProcessorTest {
         // then
         assertEquals(new Position(8, -2, EAST), endPosition);
     }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingOnWestCenter() {
+        // given
+        final String[] args = {"0", "0", "WEST", "FF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(-2, 0, WEST), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingWestOnUpperLeft() {
+        // given
+        final String[] args = {"-4", "2", "WEST", "FF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(-6, 2, WEST), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingWestOnUpperRight() {
+        // given
+        final String[] args = {"4", "1", "WEST", "FFF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(1, 1, WEST), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingWestOnLowerLeft() {
+        // given
+        final String[] args = {"-7", "-2", "WEST", "FF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(-9, -2, WEST), endPosition);
+    }
+
+    @Test
+    public void shouldProcessCommandFOnVehiclesFacingWestOnLowerRight() {
+        // given
+        final String[] args = {"4", "-2", "WEST", "FFFF"};
+
+        // when
+        final Position endPosition = CommandProcessor.processCommandsFromArgs(args);
+
+        // then
+        assertEquals(new Position(0, -2, WEST), endPosition);
+    }
+
 }
