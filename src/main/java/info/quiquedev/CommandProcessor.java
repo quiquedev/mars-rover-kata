@@ -23,7 +23,7 @@ public class CommandProcessor {
     enum Command {
         F;
 
-        static Map<Command, Function<Position, Position>> Actions = Map.of(F, p -> switch (p.direction()) {
+        static final Map<Command, Function<Position, Position>> ACTIONS = Map.of(F, p -> switch (p.direction()) {
             case NORTH -> new Position(p.x(), p.y() + 1, p.direction());
             case SOUTH -> new Position(p.x(), p.y() - 1, p.direction());
             case EAST -> new Position(p.x() + 1, p.y(), p.direction());
@@ -46,13 +46,13 @@ public class CommandProcessor {
 
     private static void verifyNumberOfArgs(String[] args) {
         if (args.length != 4) {
-            throw new CommandProcessorException("Input must be initialX initialY initialDirection command");
+            throw new CommandProcessorException("Args must be initialX initialY initialDirection command");
         }
     }
 
     private static Position applyCommands(final Position position, final List<CommandProcessor.Command> commands) {
         final Function<Position, Position> combinedActions = commands.stream().map(c ->
-                Optional.of(CommandProcessor.Command.Actions.getOrDefault(c, null))
+                Optional.of(CommandProcessor.Command.ACTIONS.getOrDefault(c, null))
                         .orElseThrow(() -> new CommandProcessorException("No action found for command %s"
                                 .formatted(c))))
                 .reduce(Function.identity(), Function::andThen);
